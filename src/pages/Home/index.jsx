@@ -3,6 +3,7 @@ import { InputPlus } from '../../components/InputPlus';
 import style from './index.module.css';
 
 import { ToDoAppContext } from '../../context/context';
+import { InputTask } from '../../components/InputTask';
 
 const Home = () => {
   const { tasks, addTask } = useContext(ToDoAppContext);
@@ -14,7 +15,11 @@ const Home = () => {
       <section className={style.articalSection}>
         <InputPlus addTask={addTask} />
       </section>
-      <section className={style.articalSection}></section>
+      <section className={style.articalSection}>
+        {tasks.map((task) => {
+          return <InputTask key={task.id} {...task} />;
+        })}
+      </section>
     </article>
   );
 };
