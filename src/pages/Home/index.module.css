@@ -1,0 +1,14 @@
+.article {
+	min-width: 400px;
+	border: 1px solid #f1f1f1;
+	background: #f1f1f1;
+	border-radius: 15px;
+	padding: 2rem;
+}
+
+.articleTitle {
+	font-size: 40px;
+	text-align: center;
+	font-family: 'Inconsolata', monospace;
+	font-weight: 700;
+}
