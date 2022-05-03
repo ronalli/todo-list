@@ -4,13 +4,14 @@ import { generationId } from '../services/config';
 const ToDoAppContext = createContext();
 const intialState = {
   tasks: [],
+  archiveTasks: [],
   // isEditTask: false,
 };
 
 export const ContextProvider = ({ children }) => {
   const [value, dispatch] = useReducer(reducer, intialState);
 
-  value.setTasks = (tasks) => {
+  value.setAllTasks = (tasks) => {
     dispatch({ type: 'SET_TASKS', payload: tasks });
   };
 
@@ -25,6 +26,10 @@ export const ContextProvider = ({ children }) => {
 
   value.removeTask = (id) => {
     dispatch({ type: 'REMOVE_TASK', payload: { id } });
+  };
+
+  value.sendToArchive = (id) => {
+    dispatch({ type: 'SEND_ARCHIVE', payload: { id } });
   };
 
   return (

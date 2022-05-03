@@ -3,7 +3,7 @@ import style from './index.module.css';
 import { ToDoAppContext } from '../../context/context';
 
 const InputTask = (props) => {
-  const { removeTask, editTask } = useContext(ToDoAppContext);
+  const { removeTask, editTask, sendToArchive } = useContext(ToDoAppContext);
   const { id, title } = props;
   const [checked, setChecked] = useState(false);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -23,7 +23,10 @@ const InputTask = (props) => {
           disabled={isEditMode}
           checked={checked}
           className={style.inputTaskCheckbox}
-          onChange={(e) => setChecked(e.target.checked)}
+          onChange={(e) => {
+            setChecked(e.target.checked);
+            setTimeout(() => sendToArchive(id), 500);
+          }}
         />
         {isEditMode ? (
           <input
