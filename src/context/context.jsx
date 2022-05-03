@@ -4,7 +4,7 @@ import { generationId } from '../services/config';
 const ToDoAppContext = createContext();
 const intialState = {
   tasks: [],
-  isUpdate: false,
+  // isEditTask: false,
 };
 
 export const ContextProvider = ({ children }) => {
@@ -19,8 +19,8 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: 'ADD_TASK', payload: newTask });
   };
 
-  value.updateTask = (id) => {
-    dispatch({ type: 'UPDATE_TASK', payload: { id } });
+  value.editTask = (id, title) => {
+    dispatch({ type: 'EDIT_TASK', payload: { id, title } });
   };
 
   value.removeTask = (id) => {

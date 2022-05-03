@@ -7,7 +7,6 @@ import { InputTask } from '../../components/InputTask';
 
 const Home = () => {
   const { tasks, addTask } = useContext(ToDoAppContext);
-  console.log(tasks);
 
   return (
     <article className={style.article}>

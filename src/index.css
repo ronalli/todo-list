@@ -1,3 +1,6 @@
+
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -42,9 +45,8 @@ table {
 	border-spacing: 0;
 }
 
-
 body {
-  font-family: 'Inconsolata', sans-serif;
+  font: 1rem/1em 'Inconsolata', sans-serif;
 	background: #3F72AF;
 	min-height: 100vh;
 	padding: 1rem;
