@@ -32,6 +32,10 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: 'SEND_ARCHIVE', payload: { id } });
   };
 
+  value.setArchiveTasks = (tasks) => {
+    dispatch({ type: 'SET_ARCHIVE_TASKS', payload: tasks });
+  };
+
   return (
     <ToDoAppContext.Provider value={value}>{children}</ToDoAppContext.Provider>
   );

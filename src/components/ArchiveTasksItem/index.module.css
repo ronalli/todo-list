@@ -1,0 +1,10 @@
+.archiveTaskItem {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	color: #b1b1b1;
+	margin-bottom: 0.5rem;
+}
+
+.archiveTaskItem:last-child {
+	margin-bottom: 0;
+}

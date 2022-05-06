@@ -4,19 +4,22 @@ import style from './index.module.css';
 
 import { ToDoAppContext } from '../../context/context';
 import { InputTask } from '../../components/InputTask';
+import { ArchiveTasks } from '../../components/ArchiveTasks';
 
 const Home = () => {
-  const { tasks, addTask, setAllTasks } = useContext(ToDoAppContext);
+  const { tasks, addTask, setAllTasks, archiveTasks, setArchiveTasks } =
+    useContext(ToDoAppContext);
 
   useEffect(() => {
-    let newTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    setAllTasks(newTasks);
+    setAllTasks(JSON.parse(localStorage.getItem('tasks')) || []);
+    setArchiveTasks(JSON.parse(localStorage.getItem('archiveTasks')) || []);
     // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks));
-  }, [tasks]);
+    localStorage.setItem('archiveTasks', JSON.stringify(archiveTasks));
+  }, [tasks, archiveTasks]);
 
   return (
     <article className={style.article}>
@@ -29,6 +32,12 @@ const Home = () => {
           return <InputTask key={task.id} {...task} />;
         })}
       </section>
+      {archiveTasks.length ? (
+        <section>
+          <hr />
+          <ArchiveTasks tasks={archiveTasks} />
+        </section>
+      ) : null}
     </article>
   );
 };

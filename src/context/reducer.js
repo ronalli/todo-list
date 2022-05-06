@@ -5,6 +5,11 @@ export const reducer = (state, { type, payload }) => {
         ...state,
         tasks: payload || [],
       };
+    case 'SET_ARCHIVE_TASKS':
+      return {
+        ...state,
+        archiveTasks: payload || [],
+      };
     case 'ADD_TASK':
       return {
         ...state,
@@ -30,7 +35,7 @@ export const reducer = (state, { type, payload }) => {
         ...state,
         archiveTasks: [
           ...state.archiveTasks,
-          state.tasks.filter((task) => task.id === payload.id),
+          ...state.tasks.filter((task) => task.id === payload.id),
         ],
         tasks: state.tasks.filter((task) => task.id !== payload.id),
       };
