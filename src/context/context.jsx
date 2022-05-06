@@ -36,6 +36,10 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: 'SET_ARCHIVE_TASKS', payload: tasks });
   };
 
+  value.removeArchive = () => {
+    dispatch({ type: 'REMOVE_ARCHIVE' });
+  };
+
   return (
     <ToDoAppContext.Provider value={value}>{children}</ToDoAppContext.Provider>
   );

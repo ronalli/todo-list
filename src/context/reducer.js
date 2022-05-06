@@ -39,6 +39,11 @@ export const reducer = (state, { type, payload }) => {
         ],
         tasks: state.tasks.filter((task) => task.id !== payload.id),
       };
+    case 'REMOVE_ARCHIVE':
+      return {
+        ...state,
+        archiveTasks: [],
+      };
     default:
       return state;
   }
